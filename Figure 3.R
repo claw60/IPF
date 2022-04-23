@@ -136,7 +136,7 @@ tmp <- unlist(lapply(readLines("h.all.v7.4.symbols.gmt"), function(x){
   y=strsplit(x,'\t')[[1]][1]
   #y=str_split(y,'_',simplify = T)[2:4]
   y = unlist(strsplit(y, split="_", fixed=T))[-1]
-  ### 3.¿Õ¸ñÁ¬½Ó
+  ### 3.Â¿Ã•Â¸Ã±ÃÂ¬Â½Ã“
   y = paste(y, collapse="_")
 })
 )
@@ -250,7 +250,7 @@ your.km.plot <- function(genes,data){
   survival_dat <- data.frame(group = group)
   group <- factor(group, levels = c("low", "high")) 
   fit <- survfit(your.surv ~ group)
-  # log-rank test£ºpvalue
+  # log-rank testÂ£Âºpvalue
   # This function implements the G-rho family of Harrington and Fleming (1982), with weights on each death of S(t)^rho, where S is the Kaplan-Meier estimate of survival. 
   # With rho = 0 this is the log-rank or Mantel-Haenszel test, and with rho = 1 it is equivalent to the Peto & Peto modification of the Gehan-Wilcoxon test.
   sdf <- survdiff(your.surv ~ group,rho=0)
@@ -300,6 +300,6 @@ mul_cox <- ggforest(Gcox,data = data,main = 'Hazard ratio',
                     fontsize =1.2,refLabel = 'reference',noDigits = 2)
 mul_cox
 ggsave("multi_Gly_GAP.pdf",mul_cox,height = 3.5,width = 10.5)
-###Figure 3 DE was done in prism
+
 
 
