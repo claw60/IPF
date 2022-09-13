@@ -1,6 +1,6 @@
-###Figure 4 A
+###Figure 3 A
 rm(list = ls())
-load("Figure 5/IPF_HIF_EMT_Gly.Rdata")
+load("IPF_HIF_EMT_Gly.Rdata")
 library(ggplot2)
 library(ggforce)
 library(ggsci)
@@ -23,7 +23,7 @@ pf <-  ggplot(IPF_HIF_EMT_Gly,aes(x=group,y=HIF_Score))+
        y="HIF Score")
 pf
 ggsave("HIF_Score_Lung_tissue.pdf",pf,height = 2.3,width = 2.5)
-##Figure 4 F/I
+##Figure 3 F/I
 library(ggpubr)
 colnames(IPF_HIF_EMT_Gly)
 p <- ggplot(data = IPF_HIF_EMT_Gly, aes(x = HIF_Score, y = Glycolysis_Score)) + 
@@ -39,7 +39,7 @@ p <- ggplot(data = IPF_HIF_EMT_Gly, aes(x = HIF_Score, y = Glycolysis_Score)) +
 p
 cor.test(as.numeric(IPF_HIF_EMT_Gly$EMT_Score),as.numeric(IPF_HIF_EMT_Gly$HIF_Score))
 
-######Figure 4 B
+######Figure 3 B
 load("BAL_HIF_EMT_Gly.Rdata")
 cor_HIF_EMT_Gly$group1 <- c(rep("Healthy",20),rep("IPF",176))
 library(ggplot2)
@@ -63,7 +63,7 @@ pf <-  ggplot(cor_HIF_EMT_Gly,aes(x=group1,y=HIF_score))+
        y="HIF Score")
 pf+ stat_compare_means()
 ggsave("HIF_Score_BAL.pdf",pf,height = 2.8,width = 3)
-##Figure 4 G/J
+##Figure 3 G/J
 library(ggpubr)
 colnames(cor_HIF_EMT_Gly)
 p <- ggplot(data = cor_HIF_EMT_Gly, aes(x = HIF_score, y = Glycolysis_Score)) + 
@@ -79,8 +79,8 @@ p <- ggplot(data = cor_HIF_EMT_Gly, aes(x = HIF_score, y = Glycolysis_Score)) +
 p
 cor.test(cor_HIF_EMT_Gly$Glycolysis_Score,cor_HIF_EMT_Gly$HIF_score)
 
-###Figure 4 C
-load("../../Figure_R_code/Figure 5/Mouse_HIF_EMT_Gly.Rdata")
+###Figure 3 C
+load("Mouse_HIF_EMT_Gly.Rdata")
 library(ggplot2)
 library(ggforce)
 library(ggsci)
@@ -113,7 +113,7 @@ pf <-  ggplot(Mouse_HIF_EMT_Gly,aes(x=group,y=HIF_Score))+
        y="HIF Score")
 pf
 ggsave("HIF_Score_Mouse.pdf",pf,height = 2.8,width = 4)
-##Figure 4 H/K
+##Figure 3 H/K
 colnames(Mouse_HIF_EMT_Gly)
 p <- ggplot(data = Mouse_HIF_EMT_Gly, aes(x = HIF_Score, y = Glycolysis_Score)) + 
   geom_point() + geom_smooth(method = lm,color = "black",se=F) +
