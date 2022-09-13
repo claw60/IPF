@@ -1,4 +1,4 @@
-##Supplement_Figure 1 
+##Supplement_Figure 2 
 ##Affymetrix data preprocess
 rm(list = ls())
 library(affy)
@@ -28,7 +28,7 @@ write.table(eset,file = "Affy_GSE25640.txt")
 setwd('raw/') 
 files <- dir(pattern="*\\.txt$") 
 library(limma)
-x <- read.maimages(files, source="agilent", green.only=TRUE, other.columns="gIsWellAboveBG") ## read �ļ�
+x <- read.maimages(files, source="agilent", green.only=TRUE, other.columns="gIsWellAboveBG") ## read ÎÄ¼þ
 x <- limma::backgroundCorrect(x, method="normexp") 
 dim(x)
 y <- limma::normalizeBetweenArrays(x, method="quantile")
@@ -214,7 +214,7 @@ after
 ggsave("umap/af1.pdf",p1,width = 4,height = 3)
 #save(fi_exp,fi_group,file = "Mouse_after_batch.Rdata")
 ###
-#Supplement_Figure 2
+#Supplement_Figure 3
 load("GSE_matrix.Rdata")
 all_gene <- Reduce(intersect,list( rownames(GSE_92592_count),
                                    rownames(GSE134692_count),
@@ -296,7 +296,7 @@ p2 <- ggplot(dat1,aes(UMAP1,UMAP2)) +
 p2
 ggsave("af1.pdf",p2,width = 4,height = 3)
 ###
-#Supplement_Figure 3
+#Supplement_Figure 4
 ##Mice model volcano plot
 rm(list = ls())
 load("Sup_Figure 3/Mouse_after_batch.Rdata")
@@ -425,7 +425,7 @@ vol_IPF
 ggsave("vol_Lung.pdf",vol_IPF,width = 4,height = 3)
 save(deg_1d,deg_2d,deg_7d,deg_14d,deg_21d,deg_28d,deg_35d,IPF_deg,file = "Mouse_IPF_GSEA_inpute.Rdata")
 ### 
-##Figure 3
+##Figure 1
 ##Mouse_IPF GSEA analysis
 rm(list = ls())
 load("Figure 3/Mouse_IPF_GSEA_inpute.Rdata")
@@ -467,7 +467,7 @@ deg_gs_1d_sig <- deg_gs_1d[deg_gs_1d$p.adjust < 0.25,]
 #write.table(deg_gs_1d,"gsea_1d.txt",sep = "\t",row.names = F)
 #### the data were adjusted in excel
 rm(list = ls())
-a=read.table("Figure 3/Mouse_BAL_IPF_GSEA.txt",header = T,sep = "\t")
+a=read.table("Mouse_BAL_IPF_GSEA.txt",header = T,sep = "\t")
 colnames(a)
 a$time
 library(stringr)
