@@ -1,4 +1,4 @@
-#Figure 5
+#Figure 4
 rm(list = ls())
 library(DESeq2)
 options(stringsAsFactors = F)
@@ -58,7 +58,7 @@ colnames(deg_merge1)
 normalized_data <- deg_merge1[,c(8,19:25)]
 #save(normalized_data,coldata,file = "Figure6_input.Rdata")
 ###
-##Figure 5A
+##Figure 4A
 library(ggrepel)
 library(ggplot2)
 colnames(res_merge)
@@ -96,8 +96,8 @@ vol_plot <- ggplot(res_merge,aes(x=log2FoldChange,y= -log10(pvalue),color=change
   )+theme(legend.position = 'none')
 vol_plot
 ggsave("vol_lung(HBO).pdf",vol_plot,width = 4,height = 4)
-###Figure 5B was done in Metascape.
-###Figure 5C
+###Figure 4B was done in Metascape.
+###Figure 4C
 library(msigdbr)
 msigdbr_species() 
 library(dplyr)
@@ -141,7 +141,9 @@ pf <- ggplot(deg_gs_sig,aes(NES,Description))+geom_point(aes(size=setSize,color=
 
 pf
 ggsave("gsea.pdf",pf,height = 4.5,width = 6.2)
-##Figure 5 D-F
+
+##Figure 5
+##Figure 5 A-C
 rownames(normalized_data) <- normalized_data$SYMBOL
 normalized_data <- normalized_data[,-1]
 boxplot(normalized_data)
