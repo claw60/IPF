@@ -1,4 +1,4 @@
-##Figure 3
+##Figure 2
 rm(list = ls())
 library(GEOquery)
 library(survival)
@@ -284,10 +284,10 @@ your.km.plot <- function(genes,data){
   ) 
   photo2  
 } 
-###Figure 3 A/B
+###Figure 2 A/B
 your.km.plot("Glycolysis_Score",data = res.cat)
 ####multivariate proportional hazards models 
-##Figure 3C 
+##Figure 2C 
 library(survminer)
 single_line<-Surv(time = data$OS.time,event = data$OS)
 data$single_line<- with(data,single_line)
