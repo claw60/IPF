@@ -2,7 +2,7 @@
 rm(list = ls())
 library(DESeq2)
 options(stringsAsFactors = F)
-countsdata=read.table("Figure 5/expr_matrix.txt",header = T,row.names = 1,sep = "\t")
+countsdata=read.table("expr_matrix.txt",header = T,row.names = 1,sep = "\t")
 head(countsdata)
 colnames(countsdata)
 countdata=countsdata[,c(6:12)]
@@ -95,8 +95,8 @@ vol_plot <- ggplot(res_merge,aes(x=log2FoldChange,y= -log10(pvalue),color=change
                                    angle = 0) 
   )+theme(legend.position = 'none')
 vol_plot
-ggsave("vol_lung(HBO).pdf",vol_plot,width = 4,height = 4)
-###Figure 4B was done in Metascape.
+ggsave("vol_lung_HBO.pdf",vol_plot,width = 4,height = 4)
+###Figure 4B was finished in Metascape and adjusted in AI software.
 ###Figure 4C
 library(msigdbr)
 msigdbr_species() 
