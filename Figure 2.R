@@ -136,7 +136,6 @@ tmp <- unlist(lapply(readLines("h.all.v7.4.symbols.gmt"), function(x){
   y=strsplit(x,'\t')[[1]][1]
   #y=str_split(y,'_',simplify = T)[2:4]
   y = unlist(strsplit(y, split="_", fixed=T))[-1]
-  ### 3.¿Õ¸ñÁ¬½Ó
   y = paste(y, collapse="_")
 })
 )
@@ -285,6 +284,7 @@ your.km.plot <- function(genes,data){
   photo2  
 } 
 ###Figure 2 A/B
+your.km.plot("EMT_Score",data = res.cat)
 your.km.plot("Glycolysis_Score",data = res.cat)
 ####multivariate proportional hazards models 
 ##Figure 2C 
