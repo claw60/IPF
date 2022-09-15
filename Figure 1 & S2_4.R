@@ -299,10 +299,10 @@ ggsave("af1.pdf",p2,width = 4,height = 3)
 #Supplement_Figure 4
 ##Mice model volcano plot
 rm(list = ls())
-load("Sup_Figure 3/Mouse_after_batch.Rdata")
+load("Mouse_after_batch.Rdata")
 group_list=factor(fi_group$time,levels = c('Con','BLM_1d','BLM_2d','BLM_7d','BLM_14d',
                                            'BLM_21d','BLM_28d','BLM_35d'))
-### do deg
+###deg analysis
 library(limma)
 design <- model.matrix(~0+factor(group_list))
 colnames(design)=levels(factor(group_list))
@@ -350,7 +350,7 @@ deg_35d$change = as.factor(ifelse(deg_35d$adj.P.Val < 0.05 & deg_35d$logFC >0.57
                                   ifelse(deg_35d$logFC < -0.57 & deg_35d$adj.P.Val<0.05 ,"down","not")))
 table(deg_35d$change)
 ###IPF patients volcanl plot
-load("Sup_Figure 3/IPF_raw.Rdata")
+load("IPF_raw.Rdata")
 coldata <- data.frame(row.names = colnames(raw_exp))
 sample <- raw_group$group
 coldata$sample <- relevel(factor(sample),"Normal")
@@ -425,7 +425,7 @@ vol_IPF
 ggsave("vol_Lung.pdf",vol_IPF,width = 4,height = 3)
 save(deg_1d,deg_2d,deg_7d,deg_14d,deg_21d,deg_28d,deg_35d,IPF_deg,file = "Mouse_IPF_GSEA_inpute.Rdata")
 ### 
-##Figure 1
+## Figure 1 ###
 ##Mouse_IPF GSEA analysis
 rm(list = ls())
 load("Figure 3/Mouse_IPF_GSEA_inpute.Rdata")
