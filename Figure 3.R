@@ -128,4 +128,4 @@ p <- ggplot(data = Mouse_HIF_EMT_Gly, aes(x = HIF_Score, y = Glycolysis_Score)) 
 p
 p1 <- p+scale_y_continuous(limits = c(-0.4,0.5))+scale_x_continuous(limits = c(-0.73,0.65))
 p1
-ggsave(p1,file="Mouse_HIF_Gly_1.pdf",width = 4.5,height = 3.5)
+ggsave(p1,file="Mouse_HIF_Gly.pdf",width = 4.5,height = 3.5)
